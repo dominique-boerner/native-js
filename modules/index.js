@@ -1,1 +1,1 @@
-import './weather/weather.mjs';
+import './weather/weather.js';
