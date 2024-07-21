@@ -30,18 +30,22 @@ export class AppButton extends HTMLElement {
     this.button = shadow.querySelector("button");
 
     // bubble event up
-    this.addEventListener("click", (e) => {
-      this.dispatchEvent(new CustomEvent(AppButton.EVENT_ON_CLICK, {
-        detail: { event: e },
-        bubbles: true,
-        composed: true
-      }));
-    });
+    // this.addEventListener("click", (e) => {
+    //   this.dispatchEvent(new CustomEvent(AppButton.EVENT_ON_CLICK, {
+    //     detail: { event: e },
+    //     bubbles: true,
+    //     composed: true
+    //   }));
+    // });
 
     // incoming render event
     this.addEventListener(AppButton.EVENT_UPDATE, (e) => {
       this.render(e);
     });
+  }
+
+  addClickListener(callback) {
+    this.button.addEventListener("click", callback);
   }
 
   render(updateEvent) {
